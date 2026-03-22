@@ -6,21 +6,30 @@ struct Index {
   @State count:number=0;
 
   build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('HelloWorld')
-        .fontSize($r('app.float.page_text_font_size'))
-        .fontWeight(FontWeight.Bold)
-        .fontColor("#fee000")
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+    Row(){
+      Column(){
+        Text(this.message)
+          .fontSize(50)
+          .fontColor(Color.Pink)
+          .fontWeight(FontWeight.Bold)
+
+        Button(){
+          Text('change')
+            .fontSize(30)
+            .fontWeight(FontWeight.Bold)
+        }
+        .fontColor('#fff')
+        .type(ButtonType.ROUNDED_RECTANGLE)
+        .margin({
+          top:50
         })
-        .onClick(() => {
-          this.message = this.count%2===0?'HelloWorld':'Welcome'
-        })
+        .padding(10)
+        .backgroundColor(Color.Grey)
+        .width('40%')
+        .height('15%')
+      }
+      .width('100%')
     }
     .height('100%')
-    .width('100%')
   }
 }
