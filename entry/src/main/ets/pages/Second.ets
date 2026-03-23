@@ -11,14 +11,14 @@ struct Second{
           .fontSize(50)
           .fontColor(Color.Red)
           .fontWeight(FontWeight.Bold)
-        Button('click me')
+        Button('click me to back Index')
           .fontSize(35)
           .fontColor(Color.White)
           .type(ButtonType.ROUNDED_RECTANGLE)
           .margin({
             top:50
           })
-          .background('#0D9FFB')
+          // .background('#0D9FFB')
           .onClick(()=>{
             let context:UIContext=this.getUIContext()
             let router=context.getRouter()
@@ -31,9 +31,9 @@ struct Second{
           })
       }
 
-      .height('100%')
+      .width('100%')
     }
-    .width('100%')
+    .height('100%')
   }
 
 
