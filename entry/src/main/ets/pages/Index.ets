@@ -2,7 +2,6 @@
 @Component
 struct Index {
   @State message: string = 'Hello World';
-
   @State count:number=0;
 
   build() {
@@ -14,7 +13,7 @@ struct Index {
           .fontWeight(FontWeight.Bold)
 
         Button(){
-          Text('change')
+          Text('change '+this.count)
             .fontSize(30)
             .fontWeight(FontWeight.Bold)
         }
@@ -27,6 +26,19 @@ struct Index {
         .backgroundColor(Color.Grey)
         .width('40%')
         .height('15%')
+        .onClick(()=>{
+          this.count++
+          let context:UIContext=this.getUIContext();
+          let router=context.getRouter();
+          router.pushUrl(
+            {
+              url:"pages/Second"
+            }
+          ).then(()=>{
+            console.log('Jump is ok!')
+          }).catch((err:BusinessError)=>{
+            console.log('Jump is error!：'+err)})
+        })
       }
       .width('100%')
     }
